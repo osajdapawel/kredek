@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- Dane o stronie -->
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="../Images/icon.png">
+    <title>Ustaw zegar szachowy</title>
+
+    <link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- Wygląd strony -->
+<body>
+
+<!--    Główny kontener z zawartością    -->
+    <div id="container">
+        <div id="header">
+            <header>Szachownica kom pl</header> 
+        </div>
+        
+<!--        Pasek nawigacyjny 
+            zbudowany z pojemnika na poszczególne opcje, które są 
+            linkami złożonymi z divów       
+-->
+        <div id="navbar">
+            <div id="navoptions">
+                <div class="option"><a href="../index.html"><div class="inOption">Strona główna</div></a></div>
+                <div class="option"><a href="SetTimer.html"><div class="inOption">Zegar</div></a></div>
+                <div class="option"><div class="inOption">Opcja</div></div>
+                <div class="option"><div class="inOption">Opcja</div></div>
+                <div class="option"><div class="inOption">Opcja</div></div>                
+            </div>
+        </div>
+        
+<!--        Główna zawartość-->        
+        <div id="content"> 
+            <h2>Ustaw zegar</h2>
+            <p>Podaj czasy graczy w sekundach:</p>
+
+<!--            Div zawierający pola umożliwiające wpisanie czasu dla każdego z zawodników 
+                oraz przycisk zapisujące te dane i przenoszące do timera
+-->
+<!--           Pola tekstowe wraz z labelkami im odpowiadającymi znajdują się w spanach, które                          umieszczone sa w divie
+ -->
+            <div class= "inputDiv">
+                <span class="inputSpan" id="leftSpan">
+                    <label for="leftInput">Czas pierwszego:</label>
+                    <input type="text" class="input" id="leftInput" value = "600"/>
+                </span>
+                
+                <span class="inputSpan" id="rightSpan">
+                    <label for="rightInput">Czas drugiego: </label>
+                    <input type="text" class="input" id="rightInput" value = "600"/>
+                </span>
+                <button type="button" id="inputButton" class = "timerButton" onclick = "">Zapisz</button> 
+
+                <a href="timer.html" id="startButtonLink"><button type="button" id="startGame" class = "timerButton" >Przejdź do licznika</button></a>
+            </div>
+            
+            
+        </div>
+<!--        stopka     -->
+        <div id="footer">Strona szachowa 2021</div>
+    </div>      
+<!-- Podłaczenie skryptu js-->
+    <script src="../Scripts/script.js">  </script>
+</body>
+</html>

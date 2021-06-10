@@ -1,0 +1,65 @@
+﻿@model PawelOsajdaZadanieDomowe6.Models.Entities.Laptop
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@* Widok potwierdznia chęci usuniecia laptopa *@
+
+<h1>Usuń</h1>
+
+<h3>Czy napewno usunąć?</h3>
+<div>
+    <h4>Laptop</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RamAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RamAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Processor.Model)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GraphicsCard)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GraphicsCard.Model)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>

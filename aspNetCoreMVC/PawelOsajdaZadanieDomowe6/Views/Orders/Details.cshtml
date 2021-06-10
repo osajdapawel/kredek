@@ -1,0 +1,109 @@
+﻿@model PawelOsajdaZadanieDomowe6.Models.Entities.Order
+
+@{
+    ViewData["Title"] = "Details";
+    float orderSum = 0;
+}
+
+@* Widok szczegółów danego zamówienia *@
+
+<h1>Szczegóły</h1>
+
+<div class="row">
+    <div class="col-sm">
+        <h4>Dane</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.UserInformations)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.UserInformations.FirstName)
+                @Html.DisplayFor(model => model.UserInformations.LastName)
+            </dd>
+            <dt class="col-sm-4">
+              @* dla wyrówniania *@
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.UserInformations.Address)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Delivery)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Delivery.Type)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-sm">
+        <h4>Zamówione</h4>
+        <hr />
+        <table class="table">
+            <thead>
+            <th>
+                Model @*@Html.DisplayFor(model => model.Suborders)*@
+            </th>
+            <th>
+                Ilość @*@Html.DisplayNameFor(model => model.Suborders)*@
+            </th>
+            <th>
+                Cena @*@Html.DisplayFor(model => model.Suborders)*@
+            </th>
+            <th>
+                Razem @*@Html.DisplayFor(model => model.Suborders)*@
+            </th>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Suborders)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Laptop.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Laptop.Price)
+                        </td>
+                        <td>
+                            @(item.Laptop.Price * item.Quantity)
+                        </td>
+                    </tr>
+                    orderSum += item.Laptop.Price * item.Quantity;
+                }
+                <tr>
+                    <td>    </td>
+                    <td>    </td>
+                    <td>
+                        <b>Suma:</b>
+                    </td>
+                    <td>
+                        @orderSum
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+
+
+
+

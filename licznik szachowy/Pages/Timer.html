@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- Dane o stronie -->
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="../Images/icon.png">
+    <title>Zegar szachowy</title>
+
+    <link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- Wygląd strony -->
+<body onload = "GetValues(); ShowLeft(leftSeconds); ShowRight(rightSeconds); Timer();">
+
+    <!--    Główny kontener z zawartością    -->
+    <div id="container">
+        <div id="header">
+            <header>Szachownica kom pl</header> 
+        </div>
+        
+<!--        Pasek nawigacyjny 
+            zbudowany z pojemnika na poszczególne opcje, które są 
+            linkami złożonymi z divów       
+-->
+        <div id="navbar">
+            <div id="navoptions">
+                <div class="option"><a href="../index.html"><div class="inOption">Strona główna</div></a></div>
+                <div class="option"><a href="SetTimer.html"><div class="inOption">Zegar</div></a></div>
+                <div class="option"><div class="inOption">Opcja</div></div>
+                <div class="option"><div class="inOption">Opcja</div></div>
+                <div class="option"><div class="inOption">Opcja</div></div>                
+            </div>
+        </div>
+<!--        Główna zawartość-->
+        <div id="content"> 
+           <h2>Zegar</h2>
+            
+<!--            Div zawierający liczniki oraz buttony licznik obsługujące -->
+            <div id="timerWrapper">
+                <div id="timer">
+                    <div id="leftTimer" class="timers">  00:00:00  </div>
+                    <div id="rightTimer" class="timers">  00:00:00  </div>
+                </div>    
+<!--                Buttony obsługi licznika-->
+                <button type="button" id="leftButton" class = "timerButton" onclick = "LeftButtonClicked();">Start</button> 
+                <button type="button" id="rightButton" class = "timerButton"onclick = "RightButtonClicked();">Stop</button>
+    
+            </div>
+<!--            button zmiany zawodnika -->
+            <button type="button" id="changePlayer" class = "timerButton changeButton"  onclick = "PlayerChange();">Zmiana zawodnika</button>
+        </div>
+        <h3>Obsługa klawiaturą:</h3>
+        <ul>
+            <li>S - start / pauza / wznowienie</li>
+            <li>E - stop</li>
+            <li>Spacja - zmiana zawodnika</li>
+        </ul>
+<!--        stopka -->
+        <div id="footer">Strona szachowa 2021</div>
+    </div>      
+
+    <script src="../Scripts/script.js">  </script>
+</body>
+</html>

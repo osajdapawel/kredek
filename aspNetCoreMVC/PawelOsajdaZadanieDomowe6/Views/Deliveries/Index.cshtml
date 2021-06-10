@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PawelOsajdaZadanieDomowe6.Models.Entities.Delivery>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* Strona główna kontrolera dostaw *@
+
+<h1>Dostawy</h1>
+<p>
+    <a asp-action="Create">Dodaj</a>
+</p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.Type)   </th>
+                <th> @Html.DisplayNameFor(model => model.DeliveryTime)   </th>
+                <th> @Html.DisplayNameFor(model => model.Price)   </th>
+                <th> </th>
+            </tr>
+        </thead>
+        @foreach (var delivery in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(p => delivery.Type)</td>
+                <td>@Html.DisplayFor(p => delivery.DeliveryTime)</td>
+                <td>@Html.DisplayFor(p => delivery.Price)</td>
+                <td>
+                    @Html.ActionLink("Edytuj", "Edit", "Deliveries", new { id = delivery.Id }, null) | 
+                    @Html.ActionLink("Usuń", "Delete", "Deliveries", new { id = delivery.Id }, null) 
+                </td>
+            </tr>
+        }
+    </table>
+</div>

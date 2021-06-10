@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PawelOsajdaZadanieDomowe6.Models.Entities.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@* Strona główna kontrolera zamówień *@
+
+<h1>Zamówienia</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nr @*@Html.DisplayNameFor(model => model.Id)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserInformations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Delivery)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserInformations.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delivery.Type)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edycja</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
